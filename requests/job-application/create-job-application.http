@@ -1,0 +1,5 @@
+@HOST = http://localhost:3333
+
+POST {{HOST}}/job/53faec78-55e1-4e75-be9f-34c907d5811e/application HTTP/1.1
+Content-Type: application/json 
+Authorization:

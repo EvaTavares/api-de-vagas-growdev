@@ -1,0 +1,18 @@
+@HOST = http://localhost:3333 
+
+POST {{HOST}}/job HTTP/1.1
+Content-Type: application/json 
+Authorization:
+
+# description: string;
+# enterprise: string;
+# limitDate: Date;
+# isActive: boolean;
+# maxCandidates?: number (opcional);
+
+{
+    "description": "Vaga Junior HTML, CSS",
+    "enterprise": "Growdev SA",
+    "limitDate": "2023-09-01 22:30",
+    "isActive": true
+}
