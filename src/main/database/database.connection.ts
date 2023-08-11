@@ -6,6 +6,7 @@ export class Database {
 
   public static async connect() {
     this._connection = await databaseConfig.initialize();
+    console.log("Database is connected");
   }
 
   public static get connection() {
