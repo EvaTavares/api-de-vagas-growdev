@@ -8,6 +8,7 @@ import {
 } from "typeorm";
 import { UserType } from "../../../models/user-type.model";
 import { JobApplicationEntity } from "./job-application.entity";
+import { JobEntity } from "./job.entity";
 
 @Entity("users")
 export class UserEntity {
@@ -34,6 +35,9 @@ export class UserEntity {
 
   @UpdateDateColumn({ name: "updated_at" })
   updatedAt: Date;
+
+  @OneToMany(() => JobEntity, (entity) => entity.recruiter)
+  job: JobEntity[];
 
   @OneToMany(() => JobApplicationEntity, (entity) => entity.candidate)
   jobApplication: JobApplicationEntity[];

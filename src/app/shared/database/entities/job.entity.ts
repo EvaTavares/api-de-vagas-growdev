@@ -2,11 +2,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   OneToMany,
   PrimaryColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { JobApplicationEntity } from "./job-application.entity";
+import { UserEntity } from "./user.entity";
 
 @Entity("jobs")
 export class JobEntity {
@@ -36,6 +39,10 @@ export class JobEntity {
 
   @UpdateDateColumn({ name: "updated_at" })
   updatedAt: Date;
+
+  @ManyToOne(() => UserEntity, (entity) => entity.job)
+  @JoinColumn({ name: "id_recruiter", referencedColumnName: "id" })
+  recruiter: UserEntity;
 
   @OneToMany(() => JobApplicationEntity, (entity) => entity.job)
   jobApplication: JobApplicationEntity[];
