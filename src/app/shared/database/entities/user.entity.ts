@@ -11,10 +11,10 @@ import { JobApplicationEntity } from "./job-application.entity";
 
 @Entity("users")
 export class UserEntity {
-  @PrimaryColumn()
+  @PrimaryColumn({ type: "uuid" })
   id: string;
 
-  @Column()
+  @Column() //decorator de propriedade
   name: string;
 
   @Column()

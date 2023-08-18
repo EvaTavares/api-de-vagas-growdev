@@ -7,11 +7,10 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 import { JobApplicationEntity } from "./job-application.entity";
-import { UserEntity } from "./user.entity";
 
 @Entity("jobs")
 export class JobEntity {
-  @PrimaryColumn()
+  @PrimaryColumn({ type: "uuid" })
   id: string;
 
   @Column()
